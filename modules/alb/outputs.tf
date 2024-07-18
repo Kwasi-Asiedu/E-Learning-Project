@@ -3,7 +3,7 @@ output "load_balancer_dns_name" {
 }
 
 output "alb_sg_id" {
-  value = aws_alb.dt_alb.security_groups
+  value = aws_security_group.dt_alb_sg.id 
 }
 
 output "target-group" {
