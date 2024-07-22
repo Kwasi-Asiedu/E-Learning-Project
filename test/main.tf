@@ -1,4 +1,4 @@
-# VPC
+# ••VPC••
 module "Test_VPC" {
   source                          = "../modules/vpc"
   vpc_cidr                        = var.vpc_cidr
@@ -16,7 +16,7 @@ module "Test_VPC" {
 }
 
 
-# APPLICATION LOAD BALANCER
+# ••APPLICATION LOAD BALANCER••
 module "Test_ALB" {
   source                     = "../modules/alb"
   dt_vpc_id                  = module.Test_VPC.vpc_id
@@ -38,14 +38,14 @@ module "Test_ALB" {
 }
 
 
-# IAM ROLE
+# ••IAM ROLE••
 module "Test_role" {
   source                  = "../modules/iamrole"
   ecs_task_execution_role = var.ecs_task_execution_role
 }
 
 
-# RDS
+# ••RDS••
 module "RDS" {
   source                       = "../modules/rds"
   allocated_storage            = var.allocated_storage
@@ -72,14 +72,14 @@ module "RDS" {
 }
 
 
-# ECR
+# ••ECR••
 module "Test_ecr" {
   source   = "../modules/ecr"
   ecr_name = var.ecr_name
 }
 
 
-# ECS
+# ••ECS••
 module "Test_ECS" {
   source                         = "../modules/ecs"
   dt_ecs_cluster_name            = var.dt_ecs_cluster_name
@@ -109,7 +109,7 @@ module "Test_ECS" {
 }
 
 
-# CLOUDWATCH
+# ••CLOUDWATCH••
 module "Test_cloudwatch" {
   source          = "../modules/cloudwatch"
   log_stream_name = var.log_stream_name
@@ -117,7 +117,7 @@ module "Test_cloudwatch" {
 }
 
 
-# ROUTE 53
+# ••ROUTE 53••
 module "Test_route53" {
   source              = "../modules/route53"
   route_53_lb_zone_id = module.Test_ALB.lb-zone-id
@@ -127,7 +127,7 @@ module "Test_route53" {
 }
 
 
-# SSL CERTIFICATE
+# ••SSL CERTIFICATE••
 module "Test_certificate" {
   source                    = "../modules/certificate"
   domain                    = var.domain

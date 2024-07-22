@@ -1,8 +1,8 @@
-# Region for infrastructure deployment
+# •••••Region for infrastructure deployment•••••
 region = "us-west-1"
 
 
-# VPC 
+# •••••VPC••••• 
 vpc_cidr                        = "10.0.0.0/16"
 enable_dns_hostnames            = true
 map_public_ip_on_launch_public  = true
@@ -20,7 +20,7 @@ instance_tenancy     = "default"
 open_cidr            = "0.0.0.0/0"
 
 
-# ALB
+# •••••ALB•••••
 alb_security_group_ingress = [{
   description = "Allows HTTP"
   port        = 80
@@ -43,7 +43,7 @@ matcher             = "200"
 path                = "/"
 
 
-#RDS
+# •••••RDS•••••
 db_subnet_group_name         = "alpha-db-subnet-group"
 identifier                   = "alpha-db"
 db_name                      = "alpha"
@@ -81,11 +81,12 @@ backend_tags = {
 # DynamoDB table
 table_name = "alpha_table"
 
-# ECR
+
+# •••••ECR•••••
 ecr_name = "e-learning-repo"
 
 
-# ECS
+# •••••ECS•••••
 ecs_task_execution_role = "alpha_role"
 dt_ecs_cluster_name     = "alpha_ecs_cluster"
 dt_ecs_service_name     = "alpha_service"
@@ -111,14 +112,14 @@ ecs_region            = "us-west-1"
 ecs_service_public_ip = false
 
 
-# Cloudwatch
+# •••••Cloudwatch•••••
 log_stream_name = "alpha_log_stream"
 cloudwatch_tags = {
   Name : "alpha_log_group"
   Environment : "staging"
 }
 
-# Route53
+# •••••Route53•••••
 domain                    = "kwasipizza.click"
 sub_domain                = "*.kwasipizza.click"
 subject_alternative_names = ["*.kwasipizza.click"]

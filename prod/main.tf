@@ -1,4 +1,4 @@
-# VPC
+# ••VPC••
 module "Prod_VPC" {
   source                          = "../modules/vpc"
   vpc_cidr                        = var.vpc_cidr
@@ -16,7 +16,7 @@ module "Prod_VPC" {
 }
 
 
-# APPLICATION LOAD BALANCER
+# ••APPLICATION LOAD BALANCER••
 module "Prod_ALB" {
   source                     = "../modules/alb-ssl"
   dt_vpc_id                  = module.Prod_VPC.vpc_id
@@ -42,14 +42,14 @@ module "Prod_ALB" {
 }
 
 
-# IAM ROLE
+# ••IAM ROLE••
 module "Prod_role" {
   source                  = "../modules/iamrole"
   ecs_task_execution_role = var.ecs_task_execution_role
 }
 
 
-# RDS
+# ••RDS••
 module "RDS" {
   source                       = "../modules/rds"
   allocated_storage            = var.allocated_storage
@@ -76,14 +76,14 @@ module "RDS" {
 }
 
 
-# ECR
+# ••ECR••
 module "Prod_ecr" {
   source   = "../modules/ecr"
   ecr_name = var.ecr_name
 }
 
 
-# ECS
+# ••ECS••
 module "Prod_ECS" {
   source                         = "../modules/ecs"
   dt_ecs_cluster_name            = var.dt_ecs_cluster_name
@@ -113,7 +113,7 @@ module "Prod_ECS" {
 }
 
 
-# CLOUDWATCH
+# ••CLOUDWATCH••
 module "Prod_cloudwatch" {
   source          = "../modules/cloudwatch"
   log_stream_name = var.log_stream_name
@@ -121,7 +121,7 @@ module "Prod_cloudwatch" {
 }
 
 
-# ROUTE 53
+# ••ROUTE 53••
 module "Prod_route53" {
   source              = "../modules/route53"
   route_53_lb_zone_id = module.Prod_ALB.lb-zone-id
@@ -132,7 +132,7 @@ module "Prod_route53" {
 }
 
 
-# SSL CERTIFICATE
+# ••SSL CERTIFICATE••
 module "Prod_certificate" {
   source                    = "../modules/certificate"
   domain                    = var.domain

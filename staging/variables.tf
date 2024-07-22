@@ -1,10 +1,12 @@
-# Region
+# ••••• Region •••••
 variable "region" {
   description = "Region for deployment"
   type        = string
 }
 
-# VPC
+
+
+# ••••• VPC •••••
 variable "tags" {
   description = "Tags for VPC"
   type        = map(any)
@@ -65,7 +67,9 @@ variable "private_subnet_cidrs" {
   type        = list(string)
 }
 
-# ALB
+
+
+# ••••• ALB •••••
 variable "alb_security_group_ingress" {
   description = "Inbound traffic into load balancer"
   type = list(object({
@@ -249,13 +253,17 @@ variable "table_name" {
   type        = string
 }
 
-# ECR
+
+
+# ••••• ECR •••••
 variable "ecr_name" {
   description = "Repository name"
   type        = string
 }
 
-# ECS
+
+
+# ••••• ECS •••••
 variable "ecs_task_execution_role" {
   description = "Task execution role of ECS"
   type        = string
@@ -335,7 +343,7 @@ variable "ecs_service_public_ip" {
 }
 
 
-# Cloudwatch
+# ••••• Cloudwatch •••••
 variable "cloudwatch_tags" {
   description = "Tag of cloudwatch group"
   type        = map(any)
@@ -346,7 +354,7 @@ variable "log_stream_name" {
   type        = string
 }
 
-# Route53
+# ••••• Route53 •••••
 variable "domain" {
   description = "Domain"
   type        = string

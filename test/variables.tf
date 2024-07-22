@@ -1,10 +1,12 @@
-# Region
+# ••••• Region •••••
 variable "region" {
   description = "Region for deployment"
   type        = string
 }
 
-# VPC
+
+
+# ••••• VPC •••••
 variable "tags" {
   description = "Tags for VPC"
   type        = map(any)
@@ -65,7 +67,9 @@ variable "private_subnet_cidrs" {
   type        = list(string)
 }
 
-# ALB
+
+
+# ••••• ALB •••••
 variable "alb_security_group_ingress" {
   description = "Inbound traffic into load balancer"
   type = list(object({
@@ -129,7 +133,9 @@ variable "path" {
   type        = string
 }
 
-# RDS
+
+
+# ••••• RDS •••••
 variable "db_subnet_group_name" {
   description = "Subnet group name of database"
   type        = string
@@ -228,34 +234,17 @@ variable "performance_insights_enabled" {
   type        = bool
 }
 
-# S3
-variable "bucket_name" {
-  description = "Remote S3 Bucket Name"
-  type        = string
-  validation {
-    condition     = can(regex("^([a-z0-9]{1}[a-z0-9-]{1,61}[a-z0-9]{1})$", var.bucket_name))
-    error_message = "Bucket Name must not be empty and must follow S3 naming rules."
-  }
-}
 
-variable "backend_tags" {
-  description = "S3 Bucket tags"
-  type        = map(string)
-}
 
-# DynamoDB
-variable "table_name" {
-  description = "Remote DynamoDB Table Name"
-  type        = string
-}
-
-# ECR
+# ••••• ECR •••••
 variable "ecr_name" {
   description = "Repository name"
   type        = string
 }
 
-# ECS
+
+
+# ••••• ECS •••••
 variable "ecs_task_execution_role" {
   description = "Task execution role of ECS"
   type        = string
@@ -335,7 +324,8 @@ variable "ecs_service_public_ip" {
 }
 
 
-# Cloudwatch
+
+# ••••• Cloudwatch •••••
 variable "cloudwatch_tags" {
   description = "Tag of cloudwatch group"
   type        = map(any)
@@ -346,7 +336,9 @@ variable "log_stream_name" {
   type        = string
 }
 
-# Route53
+
+
+# ••••• Route53 •••••
 variable "domain" {
   description = "Domain"
   type        = string
