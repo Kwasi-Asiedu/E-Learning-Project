@@ -8,19 +8,28 @@ The platform was built using Terraform to ensure uniformity, re-useability and r
 
 ## Features
 ### Infrastructure:
-    • VPC (Virtual Private Cloud)
-    • ECS (Elastic Container Service)
-    • Application Load Balancer
-    • RDS (Relational Database Service)
-    • CloudWatch 
-    • IAM roles
-    • Route53
-    • SSL Certificate 
+    • VPC (Virtual Private Cloud): A VPC is used to create a secure and isolated network for the e-learning platform.
+
+    • ECS (Elastic Container Service): Containers for the e-learning application are managed and run without managing servers, using Fargate.
+
+    • Application Load Balancer: Incoming traffic to the e-learning platform is distributed evenly across multiple instances by the Application Load Balancer.
+
+    • RDS (Relational Database Service): The e-learning platform's database is managed, scaled, and operated automatically by RDS.
+
+    • CloudWatch: Performance metrics and logs of the e-learning application are monitored and collected by CloudWatch.
+
+    • IAM roles: Permissions and access to AWS resources for the e-learning project are controlled by IAM roles.
+
+
+    • Route53: The DNS management for the e-learning platform's domain is handled by Route53.
+
+
+    • SSL Certificate: Secure communication for the e-learning platform is ensured by an SSL Certificate.
 
 ### Environment Setup:
-Separate configurations for DEV, TEST, STAGING, and PROD environments
-PROD environment uses port 443
-Other environments use port 80
+Separate environments were built for DEV, TEST, STAGING, and PROD environments.
+PROD environment uses port 443.
+Other environments use port 80.
 
 ## Automation:
 Jenkins controller set up to automate the deployment of the infrastructure on AWS
