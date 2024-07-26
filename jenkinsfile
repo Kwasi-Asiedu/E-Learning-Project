@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    // Clone the repository into a specific directory
+                    git url: 'https://github.com/Kwasi-Asiedu/E-Learning-Project.git', branch: 'main', dir: 'dev'
+                }
+            }
+        }
+        
+        stage('Terraform init') {
+            steps {
+                // Perform build steps inside 'dev' directory
+                dir('dev') {
+                    sh ('terraform init')
+                }
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                // Perform deployment steps inside 'dev' directory
+                dir('dev') {
+                    echo "Terraform action is --> ${alpha}"
+                    sh ('terraform ${alpha} -var-file="dev.tfvars" --auto-approve')
+                    // Additional deployment steps
+                }
+            }
+        }
+    }
+}
