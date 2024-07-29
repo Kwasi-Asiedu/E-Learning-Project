@@ -4,7 +4,7 @@
 This project aims to use Amazon's Elastic Container Service (ECS) to build a highly available and scalable e-learning platform. The goal is to leverage government programs to retrain graduates into IT professionals. The new platform will address current limitations and provide a robust solution to meet all student needs.
 
 ## Overview
-The platform was built using Terraform to ensure uniformity, re-useability and robustness. It integrates seamlessly with containerized applications, with all images securely stored in Amazon ECR (Elastic Container Registry).
+The platform was built using Terraform to ensure uniformity, re-usability and robustness. It integrates seamlessly with containerized applications, with all images securely stored in Amazon ECR (Elastic Container Registry).
 
 ## Features
 ### Infrastructure:
